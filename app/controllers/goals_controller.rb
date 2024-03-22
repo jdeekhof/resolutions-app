@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class GoalsController < ApplicationController
+  def home
+    @initial_goals = Goal.all.to_json
+  end
+
   def index
-    @hello_world_props = { name: "Stranger" }
+    render json: Goal.all
   end
 end
