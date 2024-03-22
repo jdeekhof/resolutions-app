@@ -7,6 +7,7 @@
     "@babel/preset-env": "7",
     "@babel/preset-react": "^7.24.1",
     "@babel/runtime": "7",
+    "@tanstack/react-query": "^5.28.6",
     "@types/babel__core": "7",
     "@types/webpack": "5",
     "babel-loader": "8",

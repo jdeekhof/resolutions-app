@@ -1,20 +1,38 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import style from './Goals.module.css';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import fetchGoals from '../api/Goals'
 
+const humanize = (str) => {
+  return str.replace(/_/g," ")
+}
 const GoalsHome = (props) => {
   const queryClient = new QueryClient()
   const [goals, setGoals] = useState(Object.values(props))
   return (
-      <QueryClientProvider client={queryClient}>
-          <div>
-              <h1> Goals </h1>
-              <hr/>
-              {goals.map((goal) => <h2>{goal.title}</h2>)}
-          </div>
-      </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <div className={'lg:flex gap-3 mx-auto'}>
+        <div className={'p-6 m-2 mx-auto bg-white rounded-xl shadow-lg shrink-0 basis-1/3'}>
+          <h1 className={'text-3xl mb-3'}> Current Goals </h1>
+          <hr/>
+          {goals.length > 0 ? goals.map((goal) => (
+            <div>
+              <h2 className={'text-xl mt-2'}>{goal.title}</h2>
+              <p>SMART goal: Achieve {humanize(goal.comparator)} {goal.target_value} {goal.target_metric} {goal.interval}</p>
+              <p> Most recent stat: 2000 steps on 3/14</p>
+              <p> progress bar</p>
+            </div>
+          )): <h2 className={'text-xl mt-2 text-center '}> No Goals Yet</h2>}
+        </div>
+        <div className={'p-6 m-2 mx-auto bg-white rounded-xl shadow-lg shrink-0 basis-1/3'}>
+          <h1 className={'text-3xl mb-3'}> Create New Goal </h1>
+          <hr/>
+        </div>
+        <div className={'p-6 m-2 mx-auto bg-white rounded-xl shadow-lg shrink-0 basis-1/3'}>
+          <h1 className={'text-3xl mb-3'}> Log New Stat </h1>
+          <hr/>
+        </div>
+      </div>
+    </QueryClientProvider>
   );
 };
 
