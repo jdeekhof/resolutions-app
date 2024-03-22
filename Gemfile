@@ -66,3 +66,5 @@ end
 gem "shakapacker", "= 7.2"
 
 gem "react_on_rails"
+
+gem "tailwindcss-rails", "~> 2.3"
