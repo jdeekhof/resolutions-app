@@ -21,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_21_195417) do
     t.integer "target_value", null: false
     t.string "target_metric", null: false
     t.string "interval", null: false
-    t.integer "capture_frequency", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

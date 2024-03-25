@@ -7,7 +7,6 @@ class CreateGoals < ActiveRecord::Migration[7.0]
       t.integer :target_value, null: false
       t.string :target_metric, null: false
       t.string :interval, null: false
-      t.integer :capture_frequency, null: false
       t.timestamps
     end
   end
