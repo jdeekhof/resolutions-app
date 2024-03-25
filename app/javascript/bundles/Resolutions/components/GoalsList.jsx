@@ -8,14 +8,14 @@ const humanize = (str) => {
 const GoalsList = ({goals}) => {
   return(
     goals.map((goal) => (
-      <div className={'p-1 border rounded-lg w-full mt-2'}>
-        <h2 className={'text-2xl'}>{goal.title}</h2>
-        <h3 className={'text-xl'}> SMART goal: </h3>
+      <div className={"p-1 border rounded-lg w-full mt-2"}>
+        <h2 className={"text-2xl"}>{goal.title}</h2>
+        <h3 className={"text-xl"}> SMART goal: </h3>
         <p>Achieve {humanize(goal.comparator)} {goal.target_value} {goal.target_metric} {goal.interval}</p>
-        <h3 className={'text-xl'}> Most recent stat: </h3>
+        <h3 className={"text-xl"}> Most recent stat: </h3>
         <p> 2000 steps on 3/14</p>
-        <h3 className={'text-xl'}> Progress </h3>
-        <progress className={'w-full'} value={0.5}/>
+        <h3 className={"text-xl"}> Progress </h3>
+        <progress className={"w-full"} value={0.5}/>
       </div>
     ))
   )

@@ -39,7 +39,7 @@ ReactOnRails.configure do |config|
   #
   # While you may configure this to be the same as your client bundle file, this file is typically
   # different. You should have ONE server bundle which can create all of your server rendered
-  # React components.
+  # React Components.
   #
   config.server_bundle_js_file = "server-bundle.js"
 
@@ -47,7 +47,7 @@ ReactOnRails.configure do |config|
   ################################################################################
   # FILE SYSTEM BASED COMPONENT REGISTRY
   ################################################################################
-  # `components_subdirectory`  is the name of the matching directories that contain automatically registered components
+  # `components_subdirectory`  is the name of the matching directories that contain automatically registered Components
   # for use in the Rails views. The default is nil, you can enable the feature by updating it in the next line.
   # config.components_subdirectory = "ror_components"
   #
