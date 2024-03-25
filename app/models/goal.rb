@@ -1,4 +1,5 @@
 class Goal < ApplicationRecord
+  has_many :stats
   enum comparator: {less_than: 0, more_than: 1}, _suffix: true
 
   validates_presence_of(:title, :comparator, :target_value, :target_metric, :interval)
@@ -11,7 +12,6 @@ class Goal < ApplicationRecord
       target_value: 8000,
       target_metric: 'steps',
       interval: 'in a day',
-      capture_frequency: 2,
     )
   end
 end

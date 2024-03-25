@@ -11,7 +11,6 @@ RSpec.describe Goal, type: :model do
           target_value: 8000,
           target_metric: 'steps',
           interval: 'in a day',
-          capture_frequency: 2,
         }
       end
 
@@ -55,14 +54,6 @@ RSpec.describe Goal, type: :model do
         end
       end
 
-      context 'capture_frequency is not passed' do
-        let(:attributes) { valid_attributes.reject!{ |key, v| key == :capture_frequency} }
-
-        it 'is not valid and will raise error' do
-          expect{goal}.to raise_error(ActiveRecord::RecordInvalid)
-        end
-      end
-
       context 'when all required fields are passed' do
         let(:attributes) { valid_attributes }
 
@@ -88,11 +79,6 @@ RSpec.describe Goal, type: :model do
       context 'comparator' do
         it 'will return the correct values' do
           expect(Goal.comparators).to eq({"less_than"=>0, "more_than"=>1})
-        end
-      end
-      context 'capture_frequency' do
-        it 'will return the correct values' do
-          expect(Goal.capture_frequencies).to eq({"daily" => 0, "monthly" => 2, "weekly" => 1})
         end
       end
     end
