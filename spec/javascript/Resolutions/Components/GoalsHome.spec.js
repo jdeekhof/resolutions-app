@@ -6,12 +6,13 @@ import GoalsHome from "../../../../app/javascript/bundles/Resolutions/Components
 
 describe("GoalsHome", () => {
   it("renders correctly", () => {
-    render(<GoalsHome {...initialProps} />)
+    render(<GoalsHome />)
     expect(screen.getByText("Current Goals")).toBeInTheDocument()
     expect(screen.getByText("Create New Goal")).toBeInTheDocument()
     expect(screen.getByText("Log New Stat")).toBeInTheDocument()
+    expect(screen.getByText("No Goals Yet"))
   })
-}
+})
 
 
 
