@@ -18,7 +18,7 @@ const GoalsHome = (props) => {
     <div className={"lg:flex gap-3 mx-auto"}>
       <div className={"p-6 m-2 mx-auto bg-white rounded-xl shadow-lg shrink-0 basis-1/3"}>
         <button onClick={refreshGoals}>test</button>
-        <h1 className={"text-3xl mb-3"}> Current Goals </h1>
+        <h1 className={"text-3xl mb-3"}>Current Goals</h1>
         <hr />
         {goals.length > 0 ? <GoalsList goals={goals}/>: <h2 className={"text-xl mt-2 text-center "}>No Goals Yet</h2>}
       </div>
@@ -44,7 +44,7 @@ GoalsHome.propTypes = {
             deadline: PropTypes.string,
             comparator: PropTypes.string.isRequired,
             target_value: PropTypes.string.isRequired,
-            target_metric: PropTypes.number.isRequired,
+            target_metric: PropTypes.string.isRequired,
             interval: PropTypes.string.isRequired,
             created_at: PropTypes.string.isRequired,
             updated_at: PropTypes.string.isRequired
