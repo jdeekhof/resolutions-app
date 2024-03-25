@@ -1,6 +1,6 @@
 import humps from "humps"
 import PropTypes from "prop-types"
-const Index = async () => {
+const IndexGoals = async () => {
   const response = await fetch("/goals")
   if (!response.ok) {
     throw new Error(`${response.status} Error, route: ${response.url}, details: ${response.statusText}`);
@@ -11,7 +11,7 @@ const Index = async () => {
   }
 };
 
-const Create = async (data) => {
+const CreateGoal = async (data) => {
   const response = await fetch("/goals", {
     method: "POST",
     headers: {
@@ -23,10 +23,8 @@ const Create = async (data) => {
   return(r)
 };
 
-Create.propTypes = {
-  data: PropTypes.objectOf(
-
-  )
+CreateGoal.propTypes = {
+  data: PropTypes.object.isRequired
 }
 
-export {Create, Index}
+export {CreateGoal, IndexGoals}

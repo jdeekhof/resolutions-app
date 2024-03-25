@@ -13,7 +13,7 @@ const GoalsList = ({goals, stats}) => {
     if (comparator == 'less_than'){
       return (Number(target)/Number(stat))
     }
-    return stat/target
+    return Number(stat)/Number(target)
   }
 
   return(
@@ -23,7 +23,7 @@ const GoalsList = ({goals, stats}) => {
         <h3 className={"text-xl"}> SMART goal: </h3>
         <p>Achieve {humanize(goal.comparator)} {goal.target_value} {goal.target_metric} {goal.interval}</p>
         <h3 className={"text-xl"}> Most recent stat: </h3>
-        <p>{statsDict[goal.id] ? `${statsDict[goal.id].activity_value} ${goal.target_metric} on ${statsDict[goal.id].activity_at} UTC` : 'No Stats Logged Yet'}</p>
+        <p>{statsDict[goal.id] ? `${statsDict[goal.id].activity_value} ${goal.target_metric} on ${new Date(statsDict[goal.id].activity_at).toDateString()}` : 'No Stats Logged Yet'}</p>
         <h3 className={"text-xl"}> Progress </h3>
         <progress className={"w-full"} value={statsDict[goal.id] ? calculateProgress(statsDict[goal.id].activity_value, goal.target_value, goal.comparator) : 0}/>
       </div>

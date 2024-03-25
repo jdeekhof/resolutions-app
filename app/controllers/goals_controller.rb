@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   protect_from_forgery except: [:create]
   def home
     @initial_goals = Goal.all.order(created_at: :desc).to_json
-    @initial_stats = Stat.select('DISTINCT ON ("goal_id") *').order(:goal_id, activity_at: :desc, id: :desc).to_json
+    @initial_stats = Stat.latest_by_goal.to_json
   end
 
   def index
