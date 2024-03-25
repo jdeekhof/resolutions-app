@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import React, {useEffect, useState} from "react";
 import CreateGoalForm from "./CreateGoalForm";
 import GoalsList from "./GoalsList";
-import {Create, Index} from ".././Api/Goals";
-import humps from "humps";
+import {Create, Index} from "../Api/Goals";
 
 const GoalsHome = (props) => {
   const [goals, setGoals] = useState(Object.values(props))

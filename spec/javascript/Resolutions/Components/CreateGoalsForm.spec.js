@@ -22,7 +22,6 @@ describe("CreateGoalForm", () => {
     userEvent.click(screen.getByRole("button", { name: /submit/i }));
   }
   beforeEach(() => {
-    window.alert = jest.fn();
     jest.clearAllMocks();
     render(<CreateGoalForm refreshGoals={mockRefreshGoals} createGoal={mockCreateGoal} />);
   });
