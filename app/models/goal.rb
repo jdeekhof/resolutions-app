@@ -1,8 +1,7 @@
 class Goal < ApplicationRecord
   enum comparator: {less_than: 0, more_than: 1}, _suffix: true
-  enum capture_frequency: [:daily, :weekly, :monthly], _suffix: true
 
-  validates_presence_of(:title, :comparator, :target_value, :target_metric, :interval, :capture_frequency)
+  validates_presence_of(:title, :comparator, :target_value, :target_metric, :interval)
   validates_uniqueness_of(:title)
   def self.create_dummy
     create!(

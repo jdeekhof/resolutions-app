@@ -31,7 +31,6 @@ GoalsList.propTypes = {
       target_value: PropTypes.string.isRequired,
       target_metric: PropTypes.number.isRequired,
       interval: PropTypes.string.isRequired,
-      capture_frequency: PropTypes.string.isRequired,
       created_at: PropTypes.string.isRequired,
       updated_at: PropTypes.string.isRequired
     })
