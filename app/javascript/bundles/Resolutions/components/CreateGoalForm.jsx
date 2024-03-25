@@ -2,12 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import PropTypes from "prop-types";
 
-const CreateGoalForm = ({refreshGoals, createGoal}) => {
+const CreateGoalForm = ({refresh, createGoal}) => {
   const { register, handleSubmit, reset ,formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
     const response = await createGoal(data)
-    refreshGoals()
+    refresh()
     reset()
   };
 
