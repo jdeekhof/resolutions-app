@@ -9,6 +9,7 @@ const CreateGoalForm = ({refresh, createGoal}) => {
     const response = await createGoal(data)
     refresh()
     reset()
+    alert(response.message)
   };
 
   return (

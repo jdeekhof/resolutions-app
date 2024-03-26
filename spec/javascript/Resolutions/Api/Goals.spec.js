@@ -1,4 +1,4 @@
-import { Index, Create } from '../../../../app/javascript/bundles/Resolutions/Api/goals'
+import { IndexGoals, CreateGoal } from '../../../../app/javascript/Api/goals'
 import humps from 'humps'
 import {jest} from '@jest/globals'
 
@@ -16,7 +16,7 @@ describe('Goals Api', () => {
       json: async () => mockData,
     })
 
-    const data = await Index()
+    const data = await IndexGoals()
     expect(data).toEqual(mockData)
     expect(fetch).toHaveBeenCalledWith('/goals')
   })
@@ -29,7 +29,7 @@ describe('Goals Api', () => {
       statusText: 'Not Found',
     })
 
-    await expect(Index()).rejects.toThrow('404 Error, route: /goals, details: Not Found')
+    await expect(IndexGoals()).rejects.toThrow('404 Error, route: /goals, details: Not Found')
   })
 
   it('Create function sends a POST request with decamelized data', async () => {
@@ -40,7 +40,7 @@ describe('Goals Api', () => {
       json: async () => mockResponse,
     })
 
-    const response = await Create(inputData)
+    const response = await CreateGoal(inputData)
     expect(response).toEqual(mockResponse)
     expect(fetch).toHaveBeenCalledWith('/goals', {
       method: 'POST',

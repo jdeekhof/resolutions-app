@@ -2,11 +2,11 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import CreateGoalForm from "../../../../app/javascript/bundles/Resolutions/Components/CreateGoalForm"
+import CreateGoalForm from "../../../../app/javascript/components/CreateGoalForm"
 
 describe("CreateGoalForm", () => {
   const mockRefreshGoals = jest.fn()
-  const mockCreateGoal = jest.fn()
+  const mockCreateGoal = jest.fn().mockResolvedValue({ message: 'Goal created successfully' })
   const validInputs = async () => {
     const titleInput = screen.getByLabelText("Describe Goal")
     const comparatorSelect = screen.getByLabelText("I want to (spend, walk, eat, etc.)")
@@ -23,7 +23,7 @@ describe("CreateGoalForm", () => {
   }
   beforeEach(() => {
     jest.clearAllMocks()
-    render(<CreateGoalForm refreshGoals={mockRefreshGoals} createGoal={mockCreateGoal} />)
+    render(<CreateGoalForm refresh={mockRefreshGoals} createGoal={mockCreateGoal} />)
   })
 
   it("displays validation errors when required fields are missing", async () => {

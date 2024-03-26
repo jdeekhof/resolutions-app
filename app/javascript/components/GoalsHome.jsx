@@ -1,5 +1,5 @@
-import PropTypes, {checkPropTypes} from "prop-types";
-import React, {useEffect, useState} from "react";
+import PropTypes from "prop-types";
+import React, {useState} from "react";
 import CreateGoalForm from "./CreateGoalForm";
 import CreateStatForm from "./CreateStatForm"
 import GoalsList from "./GoalsList";
@@ -24,7 +24,6 @@ const GoalsHome = ({initialGoals, initialStats}) => {
   return (
     <div className={"lg:flex gap-3 mx-auto"}>
       <div className={"p-6 m-2 mx-auto bg-white rounded-xl shadow-lg shrink-0 basis-1/3"}>
-        <button onClick={refresh}>test</button>
         <h1 className={"text-3xl mb-3"}>Current Goals</h1>
         <hr />
         {goals.length > 0 ?

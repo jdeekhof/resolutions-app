@@ -1,19 +1,17 @@
-import React, {useState} from "react";
-import { Controller, useForm } from "react-hook-form";
-import "react-datepicker/dist/react-datepicker.css";
-import PropTypes from "prop-types";
-import DatePicker from "react-datepicker";
+import React, {useState} from "react"
+import { Controller, useForm } from "react-hook-form"
+import "react-datepicker/dist/react-datepicker.css"
+import DatePicker from "react-datepicker"
 
 const CreateStatForm = ({goals, refresh, createStat}) => {
-  const {control , handleChange , register, handleSubmit, reset, formState: {errors}} = useForm();
+  const {control , handleChange , register, handleSubmit, reset, formState: {errors}} = useForm()
   const [selectedGoal, setSelectedGoal] = useState(goals[0])
-  const [activityAt, setActivityAt] = useState()
   const onSubmit = async (data) => {
     const response = await createStat(data)
     refresh()
     reset()
     alert(response.message)
-  };
+  }
   const onChange = (goal_id) => {
     console.log(goals.filter((goal)=> goal.id === Number(goal_id)))
     setSelectedGoal(goals.filter((goal)=> goal.id === Number(goal_id))[0])
